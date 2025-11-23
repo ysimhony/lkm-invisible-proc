@@ -10,6 +10,7 @@ all: usr
 
 clean:
 	make -C $(KERNEL_DIR) M=$(PWD) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) clean
+	rm -rf invisible_proc
 
 usr:
 	$(GCC) -o invisible_proc invisible_proc.c -static
