@@ -1,6 +1,8 @@
 obj-m := lkm.o
-KERNEL_DIR := /home/conguyen/repos/personal/linux
-CROSS_COMPILE := /home/conguyen/repos/personal/arm64-toolchain/bin/aarch64-none-linux-gnu-
+#KERNEL_DIR := /home/conguyen/repos/personal/linux
+KERNEL_DIR := /home/yacovs/qemu_kernel/kprobe-invisible-process/linux-6.18-rc3 
+#CROSS_COMPILE := /home/conguyen/repos/personal/arm64-toolchain/bin/aarch64-none-linux-gnu-
+CROSS_COMPILE := /usr/bin/aarch64-linux-gnu-
 GCC := $(CROSS_COMPILE)gcc
 ROOTFS_PATH := $(PWD)/rootfs
 ARCH := arm64
